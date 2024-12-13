@@ -1,3 +1,4 @@
+
 name: PitchBlack [PBRP]
 
 on:
@@ -12,11 +13,6 @@ on:
         - android-14.0
         - android-12.1
         - android-11.0
-        - android-10.0
-        - android-9.0
-        - android-8.1
-        - android-7.1
-        - android-6.0
       DEVICE_TREE:
         description: 'Custom Recovery Tree' # Your already made Device Tree for TWRP
         required: true
@@ -28,11 +24,11 @@ on:
       DEVICE_NAME:
         description: 'Specify your Device Codename' # As is, just like your PRODUCT_DEVICE in your device tree.
         required: true
-        default: '7304X'
+        default: 'haotian'
       DEVICE_PATH:
         description: 'Specify your Device Path (Check the DEVICE_PATH in BoardConfig.mk)' # As is, just like your DEVICE_PATH in your BoardConfig.mk
         required: true
-        default: 'device/device`s_company/Codename'
+        default: 'device/xiaomi/haotian'
       BUILD_TARGET:
         description: 'Specify your Build Target (choose "pbrp" instead of "recovery" for Android 11 or above)' # Pick among boot, recovery and vendor_boot
         required: true
@@ -109,7 +105,7 @@ jobs:
         pushd android-recovery
         git config --global user.name "${{ github.actor }}"
         git config --global user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
-        repo init --depth=1 -u https://github.com/PitchBlackRecoveryProject/manifest_pb.git -b ${{ inputs.MANIFEST_BRANCH }}
+        repo init --depth=1 -u https://github.com/mlm-games/manifest_pb.git -b ${{ inputs.MANIFEST_BRANCH }}
         popd
 
     - name: Repo Sync
